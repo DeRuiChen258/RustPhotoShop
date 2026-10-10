@@ -336,6 +336,8 @@ Linux 版当前尚未接入以下上游能力：
 
 上游 [Compositor](https://github.com/robbietilton/Compositor) 使用 SwiftUI、AppKit 和 Metal，功能范围比当前 Linux 版更完整。保留其源码便于对照语义、验证工程格式和继续迁移。
 
+仓库内的上游源码是 1.4.5 时期的快照（对应本仓库版本号），上游此后仍在继续更新。README 与测试所依据的上游行为以这份快照为准；若要跟进较新实现，需要重新获取上游源码并运行 `compositor-rs/scripts/sync-kernels.sh` 同步 C 内核，再核对迁移中的功能差异。
+
 原版要求 Apple silicon、macOS 26.0+ 和 Xcode 26+：
 
 ```bash
