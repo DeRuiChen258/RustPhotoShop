@@ -1,0 +1,13 @@
+# Vendored upstream macOS sources.
+#
+# The Swift/AppKit/Metal project this Linux port derives from is published here so the C kernels
+# and the file format can be compared in-tree. Upstream's own repository is the place to read and
+# change it, so it is marked vendored: it stays visible in the tree and in diffs, but GitHub does
+# not report it as this project's language.
+Compositor/**        linguist-vendored
+CompositorTests/**   linguist-vendored
+CompositorUITests/** linguist-vendored
+Compositor.xcodeproj/** linguist-vendored
+Config/**            linguist-vendored
+scripts/release.sh   linguist-vendored
+appcast.xml          linguist-vendored
