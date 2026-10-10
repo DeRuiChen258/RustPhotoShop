@@ -1,0 +1,25 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=RustPhotoShop
+Name[zh_CN]=RustPhotoShop 图像编辑器
+GenericName=Image Editor
+GenericName[zh_CN]=图像编辑器
+Comment=Open-source image editor for compositing and photo work
+Comment[zh_CN]=开源图像编辑器：合成与修图
+# The installer rewrites Exec and TryExec with the absolute path it copied the binary to.
+Exec=rustphotoshop %F
+TryExec=rustphotoshop
+Icon=rustphotoshop
+Terminal=false
+StartupNotify=true
+StartupWMClass=rustphotoshop
+Categories=Graphics;2DGraphics;RasterGraphics;Photography;
+MimeType=image/png;image/jpeg;image/tiff;image/webp;image/bmp;image/x-psd;image/x-photoshop;application/x-compositor-project;
+Keywords=image;editor;photo;layers;compositing;mask;brush;psd;
+Actions=NewWindow;
+
+[Desktop Action NewWindow]
+Name=New Window
+Name[zh_CN]=新窗口
+Exec=rustphotoshop --new-window

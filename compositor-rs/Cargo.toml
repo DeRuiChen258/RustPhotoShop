@@ -1,0 +1,70 @@
+[package]
+name = "rustphotoshop"
+version = "1.4.5"
+edition = "2024"
+# eframe/egui 0.36 need a recent toolchain; the crate itself builds on 1.95+.
+rust-version = "1.95"
+description = "RustPhotoShop — an open-source Rust image editor for Ubuntu, based on Compositor."
+license = "MIT"
+readme = "README.md"
+categories = ["graphics", "multimedia::images"]
+keywords = ["image", "editor", "photoshop", "compositing", "layers"]
+default-run = "rustphotoshop"
+
+[lib]
+name = "rustphotoshop"
+path = "src/lib.rs"
+
+[[bin]]
+name = "rustphotoshop"
+path = "src/main.rs"
+
+[features]
+# Default feature set. `dither` reuses the upstream DitherPixels.c kernel, which needs a
+# Blocks-capable compiler (clang) plus libBlocksRuntime; see BUILD.md. The build degrades
+# gracefully (with a warning) when that toolchain is missing.
+default = ["dither"]
+dither = []
+
+[dependencies]
+eframe = { version = "0.36", default-features = false, features = [
+    "default_fonts",
+    "glow",
+    "x11",
+    "wayland",
+    "persistence",
+] }
+egui = { version = "0.36", default-features = false }
+image = { version = "0.25", default-features = false, features = [
+    "png",
+    "jpeg",
+    "webp",
+    "tiff",
+    "bmp",
+    "gif",
+] }
+rfd = { version = "0.17", default-features = false, features = ["xdg-portal"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+uuid = { version = "1", features = ["v4", "serde"] }
+log = "0.4"
+env_logger = "0.11"
+thiserror = "2"
+
+[build-dependencies]
+cc = "1"
+
+[dev-dependencies]
+tempfile = "3"
+
+[profile.release]
+opt-level = 3
+lto = "thin"
+codegen-units = 1
+strip = true
+
+[profile.dev]
+opt-level = 1
+
+[profile.dev.package."*"]
+opt-level = 2

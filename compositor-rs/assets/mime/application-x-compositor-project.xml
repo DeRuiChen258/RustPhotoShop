@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- A Compositor project is a folder package, so it needs its own MIME type for the file
+     manager to offer "Open with RustPhotoShop". Installed into
+     ~/.local/share/mime/packages and picked up by update-mime-database. -->
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+  <mime-type type="application/x-compositor-project">
+    <comment>RustPhotoShop / Compositor project</comment>
+    <comment xml:lang="zh_CN">RustPhotoShop / Compositor 工程</comment>
+    <generic-icon name="rustphotoshop"/>
+    <glob pattern="*.comp"/>
+    <magic priority="60">
+      <match type="string" value="com.compositor.project" offset="0:4096"/>
+    </magic>
+  </mime-type>
+</mime-info>
